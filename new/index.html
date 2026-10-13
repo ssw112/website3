@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="uk" data-v="b">
+<html lang="uk">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,10 +10,9 @@
 <meta property="og:title" content="AV Concierge — консьєрж-сервіс у Валенсії">
 <meta property="og:description" content="Допомагаємо українцям та іншим у Європі легко переїхати до Іспанії, облаштуватися та почуватися як вдома.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<script>/* mockup only: ?v=a | ?v=b */(function(){var v=new URLSearchParams(location.search).get("v");if(v==="a"||v==="b")document.documentElement.dataset.v=v;})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600&family=Noto+Serif+Display:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600&family=Noto+Serif+Display:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="site.css">
 </head>
 <body>
@@ -36,33 +35,10 @@
 
 <main id="top">
 
-<!-- HERO A: current site photo -->
-<div class="hero hero-a">
-  <div class="wrap">
-    <div class="grid">
-      <div>
-        <p class="label eyebrow">Валенсія та Коста Бланка, Іспанія</p>
-        <h1>Консьєрж-сервіс<br>у Валенсії</h1>
-        <p class="lead"><b>Релокація та супровід під ключ.</b> Допомагаємо українцям та іншим у Європі легко переїхати до Іспанії, облаштуватися та почуватися як вдома.</p>
-        <div class="cta">
-          <a class="btn solid js-wa" href="#contact">Написати у WhatsApp <i>→</i></a>
-          <a class="btn" href="#services">Послуги</a>
-        </div>
-      </div>
-      <figure>
-        <div class="ph"><img src="hero.jpg" alt="Валенсія, Іспанія" width="484" height="458"></div>
-        <figcaption class="label"><span>Валенсія</span><span>39.47° N · 0.38° W</span></figcaption>
-      </figure>
-    </div>
-  </div>
-</div>
-
-<!-- HERO B: typography only -->
-<div class="hero hero-b">
+<div class="hero">
+  <img class="bg" src="valencia-cac.jpg" alt="Місто мистецтв і наук, Валенсія" width="2200" height="1468" fetchpriority="high">
   <div class="wrap">
     <div class="stage">
-      <svg class="ghost" aria-hidden="true"><use href="mark.svg#m"/></svg>
-      <p class="label coords">39.4699° N<br>0.3763° W</p>
       <p class="label eyebrow">Валенсія та Коста Бланка, Іспанія</p>
       <h1>Консьєрж-сервіс<br>у Валенсії</h1>
       <p class="lead"><b>Релокація та супровід під ключ.</b> Допомагаємо українцям та іншим у Європі легко переїхати до Іспанії, облаштуватися та почуватися як вдома.</p>
@@ -70,6 +46,7 @@
         <a class="btn solid js-wa" href="#contact">Написати у WhatsApp <i>→</i></a>
         <a class="btn" href="#services">Послуги</a>
       </div>
+      <p class="label place">Ciutat de les Arts i les Ciències<br>39.4699° N · 0.3763° W</p>
     </div>
     <div class="meta">
       <div><span class="label">Де</span><p>Валенсія та Коста Бланка. Онлайн — по всій Іспанії.</p></div>
@@ -103,7 +80,12 @@
   </div>
 </section>
 
-<section id="how" style="padding-top:0">
+<figure class="band wrap rv">
+  <img src="valencia-torres.jpg" alt="Torres de Serranos, Валенсія" width="2000" height="1070">
+  <figcaption class="label"><span>Torres de Serranos</span><span>Ciutat Vella, València</span></figcaption>
+</figure>
+
+<section id="how">
   <div class="wrap">
     <div class="head rv">
       <div><p class="label">02 — Як ми працюємо</p></div>
@@ -163,6 +145,11 @@
   </div>
 </section>
 
+<figure class="band wrap rv" style="margin-top:clamp(72px,11vw,150px)">
+  <img src="valencia-ayuntamiento.jpg" alt="Plaza del Ayuntamiento, Валенсія" width="2000" height="930">
+  <figcaption class="label"><span>Plaza del Ayuntamiento</span><span>Центр Валенсії</span></figcaption>
+</figure>
+
 <section id="contact" class="contact">
   <div class="wrap grid">
     <div class="rv">
@@ -186,11 +173,9 @@
     <a class="brand" href="#top" aria-label="AV Concierge"><svg aria-hidden="true"><use href="mark.svg#m"/></svg></a>
     <span>Консьєрж-сервіс в Іспанії для тих, хто цінує свій час та спокій.</span>
     <span>© <span id="y"></span> AV Concierge · València</span>
+    <span class="credit">Фото: <a href="https://commons.wikimedia.org/wiki/File:Museo_Pr%C3%ADncipe_Felipe,_Ciudad_de_las_Artes_y_las_Ciencias,_Valencia,_Espa%C3%B1a,_2014-06-29,_DD_56.JPG" target="_blank" rel="noopener">Diego Delso</a>, <a href="https://commons.wikimedia.org/wiki/File:Puerta_de_los_Serranos,_Valencia,_Espa%C3%B1a,_2014-06-29,_DD_30.JPG" target="_blank" rel="noopener">delso.photo</a>, CC BY-SA 3.0 (ч/б, кадрування); <a href="https://commons.wikimedia.org/wiki/File:Plaza_del_Ayuntamiento_(Valencia).jpg" target="_blank" rel="noopener">Julián Monrabal</a>, CC0</span>
   </div>
 </footer>
-
-<!-- mockup only -->
-<div class="ab"><a data-s="a" href="?v=a">A · ФОТО</a><a data-s="b" href="?v=b">B · ТИПОГРАФІКА</a></div>
 
 <script>
   // Contacts: edit here once; every link on the page follows.
