@@ -25,7 +25,7 @@
     </a>
     <nav class="menu">
       <a href="#services">Послуги</a>
-      <a href="#stories">Історії</a>
+      <a href="#about">Про нас</a>
       <a href="#why">Чому ми</a>
       <a href="#contact">Контакти</a>
     </nav>
@@ -94,17 +94,17 @@
 </section>
 
 <figure class="band wrap rv">
-  <img src="valencia-torres.jpg" alt="Torres de Serranos, Валенсія" width="2000" height="1070" loading="lazy">
-  <figcaption class="label"><span>Torres de Serranos</span><span>Ciutat Vella, València</span></figcaption>
+  <img src="valencia-ayuntamiento.jpg" alt="Plaza del Ayuntamiento, Валенсія" width="2000" height="930" loading="lazy">
+  <figcaption class="label"><span>Plaza del Ayuntamiento</span><span>Центр Валенсії</span></figcaption>
 </figure>
 
-<section id="stories">
+<section id="about">
   <div class="wrap">
     <div class="head rv">
-      <div><p class="label">02 — Історії</p></div>
+      <div><p class="label">02 — Про нас</p></div>
       <div class="r">
-        <h2>Реальні люди.<br>Реальні переїзди.</h2>
-        <p>Як це працює насправді.</p>
+        <h2>Свої люди<br>у Валенсії</h2>
+        <p>Хто відповідає за результат.</p>
       </div>
     </div>
 
@@ -126,7 +126,7 @@
   </div>
 </section>
 
-<section id="why" class="paper">
+<section id="why" class="panel">
   <div class="wrap">
     <div class="head rv">
       <div><p class="label">03 — Чому AV Concierge</p></div>
@@ -164,7 +164,7 @@
     <a class="brand" href="#top" aria-label="AV Concierge"><svg aria-hidden="true"><use href="mark.svg#m"/></svg></a>
     <span>AV Concierge Service — ваш надійний партнер у Валенсії.</span>
     <span>© <span id="y"></span> AV Concierge · València</span>
-    <span class="credit">Фото: <a href="https://commons.wikimedia.org/wiki/File:Museo_Pr%C3%ADncipe_Felipe,_Ciudad_de_las_Artes_y_las_Ciencias,_Valencia,_Espa%C3%B1a,_2014-06-29,_DD_56.JPG" target="_blank" rel="noopener">Diego Delso</a>, <a href="https://commons.wikimedia.org/wiki/File:Puerta_de_los_Serranos,_Valencia,_Espa%C3%B1a,_2014-06-29,_DD_30.JPG" target="_blank" rel="noopener">delso.photo</a>, CC BY-SA 3.0 (ч/б, кадрування)</span>
+    <span class="credit">Фото: <a href="https://commons.wikimedia.org/wiki/File:Museo_Pr%C3%ADncipe_Felipe,_Ciudad_de_las_Artes_y_las_Ciencias,_Valencia,_Espa%C3%B1a,_2014-06-29,_DD_56.JPG" target="_blank" rel="noopener">Diego Delso</a>, delso.photo, CC BY-SA 3.0 (ч/б, кадрування); <a href="https://commons.wikimedia.org/wiki/File:Plaza_del_Ayuntamiento_(Valencia).jpg" target="_blank" rel="noopener">Julián Monrabal</a>, CC0</span>
   </div>
 </footer>
 
@@ -182,7 +182,7 @@
   var FOUNDER = {
     name:  "Андрій Возняк",
     bio:   "Блогер і гід у Валенсії. Живе в Іспанії, знає місто, людей і процедури зсередини. Веде спільноти українців по всій Європі.",
-    photo: "",
+    photo: "founder.jpg",
     instagram: "gid_andrii_vozniak",
     stats: [ { n: "", t: "підписників" }, { n: "", t: "років у Валенсії" }, { n: "", t: "у спільнотах" } ]
   };
@@ -207,7 +207,10 @@
   all(".js-founder-name", function(e){ e.textContent = FOUNDER.name; });
   all(".js-founder-bio",  function(e){ e.textContent = FOUNDER.bio; });
   all(".js-ig-personal",  function(a){ ext(a, "https://www.instagram.com/" + FOUNDER.instagram); a.firstChild.textContent = "@" + FOUNDER.instagram + " "; });
-  if (FOUNDER.photo) { all(".js-founder-ph", function(d){ d.innerHTML = '<img src="' + FOUNDER.photo + '" alt="' + FOUNDER.name + '" loading="lazy">'; }); }
+  if (FOUNDER.photo) { all(".js-founder-ph", function(d){
+    var im = new Image(); im.alt = FOUNDER.name; im.loading = "lazy";
+    im.onerror = function(){ im.remove(); };  // file missing: the mark stays
+    im.src = FOUNDER.photo; d.appendChild(im); }); }
   all(".js-stats", function(d){
     FOUNDER.stats.forEach(function(s){ if (!s.n) return;
       var el = document.createElement("div"); el.innerHTML = "<b></b><span></span>";
