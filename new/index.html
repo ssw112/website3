@@ -101,7 +101,6 @@
     </div>
 
     <ul class="founders rv" id="founders"></ul>
-    <div class="follow rv" id="follow"></div>
 
     <ul class="posts rv" id="posts"></ul>
   </div>
@@ -185,21 +184,16 @@
     var ul = document.getElementById("founders");
     FOUNDERS.forEach(function(f){
       var li = document.createElement("li");
-      li.innerHTML = '<div class="ph"><svg aria-hidden="true"><use href="mark.svg#m"/></svg></div><div class="t"><p class="label"></p><h3></h3><p class="bio"></p></div>';
+      li.innerHTML = '<div class="ph"><svg aria-hidden="true"><use href="mark.svg#m"/></svg></div><div class="t"><p class="label"></p><h3></h3><p class="bio"></p><a class="btn" href="#"></a></div>';
       li.querySelector(".label").textContent = f.role;
       li.querySelector("h3").textContent = f.name;
       li.querySelector(".bio").textContent = f.bio;
       if (f.photo) { var im = new Image(); im.alt = f.name; im.loading = "lazy";
         im.onerror = function(){ im.remove(); }; im.src = f.photo; li.querySelector(".ph").appendChild(im); }
+      var a = li.querySelector(".btn"); ext(a, "https://www.instagram.com/" + f.instagram);
+      a.textContent = "@" + f.instagram + " "; a.insertAdjacentHTML("beforeend", '<i class="ne" aria-hidden="true"></i>');
       ul.appendChild(li);
     });
-    // one row of links under the cards: founder 1, AV Concierge, founder 2
-    var row = document.getElementById("follow");
-    function handle(f){ var a = document.createElement("a"); a.className = "btn"; ext(a, "https://www.instagram.com/" + f.instagram);
-      a.textContent = "@" + f.instagram + " "; a.insertAdjacentHTML("beforeend", '<i class="ne" aria-hidden="true"></i>'); return a; }
-    if (FOUNDERS[0]) row.appendChild(handle(FOUNDERS[0]));
-    row.insertAdjacentHTML("beforeend", '<a class="btn js-ig" href="#">AV Concierge в Instagram <i class="ne" aria-hidden="true"></i></a>');
-    if (FOUNDERS[1]) row.appendChild(handle(FOUNDERS[1]));
   })();
   all(".js-ig",   function(a){ ext(a, "https://www.instagram.com/" + CONTACTS.instagram); });
   // posts
