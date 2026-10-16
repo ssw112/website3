@@ -29,7 +29,7 @@
       <a href="#why">Чому ми</a>
       <a href="#contact">Контакти</a>
     </nav>
-    <a class="btn js-wa" href="#contact">WhatsApp <i>→</i></a>
+    <a class="btn js-wa" href="#contact">WhatsApp <i class="ar" aria-hidden="true"></i></a>
   </div>
 </header>
 
@@ -43,7 +43,7 @@
       <h1>Ваш персональний<br>concierge у Валенсії</h1>
       <p class="lead"><b>Релокація, нерухомість, бізнес, організаційні питання.</b> Ми покращуємо вашу якість життя та бізнесу, шукаємо рішення та координуємо спеціалістів, щоб ви могли зосередитися на своїх цілях</p>
       <div class="cta">
-        <a class="btn solid js-wa" href="#contact">Написати у WhatsApp <i>→</i></a>
+        <a class="btn solid js-wa" href="#contact">Написати у WhatsApp <i class="ar" aria-hidden="true"></i></a>
         <a class="btn" href="#services">Послуги</a>
       </div>
       <p class="label place">Ciutat de les Arts i les Ciències<br>39.4699° N · 0.3763° W</p>
@@ -100,8 +100,9 @@
       </div>
     </div>
 
-    <ul class="founders rv" id="founders"></ul>
-    <div class="follow rv"><a class="btn js-ig" href="#">AV Concierge в Instagram <i>↗</i></a></div>
+    <ul class="founders rv" id="founders">
+      <li class="av"><a class="btn js-ig" href="#">AV Concierge в Instagram <i class="ne" aria-hidden="true"></i></a></li>
+    </ul>
 
     <ul class="posts rv" id="posts"></ul>
   </div>
@@ -130,10 +131,10 @@
       <p class="lead">Розкажіть нам, що вам потрібно, а ми запропонуємо оптимальний формат допомоги</p>
     </div>
     <div class="clist rv">
-      <a class="js-wa" href="#"><span class="label">WhatsApp</span><span class="v js-wa-t"></span><i>↗</i></a>
-      <a class="js-mail" href="#"><span class="label">Email</span><span class="v js-mail-t"></span><i>↗</i></a>
-      <a class="js-ig" href="#"><span class="label">Instagram</span><span class="v js-ig-t"></span><i>↗</i></a>
-      <div><span class="label">Валенсія</span><span class="v">C/ de Sant Francesc de Borja, 13, Extramurs, 46007</span></div>
+      <a class="js-wa" href="#"><span class="label">WhatsApp</span><span class="v js-wa-t"></span><i class="ne" aria-hidden="true"></i></a>
+      <a class="js-mail" href="#"><span class="label">Email</span><span class="v js-mail-t"></span><i class="ne" aria-hidden="true"></i></a>
+      <a class="js-ig" href="#"><span class="label">Instagram</span><span class="v js-ig-t"></span><i class="ne" aria-hidden="true"></i></a>
+      <a class="js-map" href="#"><span class="label">Валенсія</span><span class="v">C. Marqués de Zenete, 4, Extramurs, 46007</span><i class="ne" aria-hidden="true"></i></a>
     </div>
   </div>
 </section>
@@ -154,7 +155,8 @@
     whatsapp:  "34627071660",
     whatsappText: "+34 627 071 660",
     email:     "contact@avconcierge.es",
-    instagram: "av_concierge_valencia"
+    instagram: "av_concierge_valencia",
+    map:       "C. Marqués de Zenete, 4, Extramurs, 46007 Valencia"
   };
   // Founders. photo: a file next to index.html, or "" to show the mark. Keep both bios about the same length.
   var FOUNDERS = [
@@ -174,6 +176,7 @@
   all(".js-wa",   function(a){ ext(a, "https://wa.me/" + CONTACTS.whatsapp); });
   all(".js-ig",   function(a){ ext(a, "https://www.instagram.com/" + CONTACTS.instagram); });
   all(".js-mail", function(a){ a.href = "mailto:" + CONTACTS.email; });
+  all(".js-map",  function(a){ ext(a, "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(CONTACTS.map)); });
   all(".js-wa-t",   function(e){ e.textContent = CONTACTS.whatsappText; });
   all(".js-mail-t", function(e){ e.textContent = CONTACTS.email; });
   all(".js-ig-t",   function(e){ e.textContent = "@" + CONTACTS.instagram; });
@@ -189,10 +192,10 @@
       li.querySelector("h3").textContent = f.name;
       li.querySelector(".bio").textContent = f.bio;
       var a = li.querySelector(".btn"); ext(a, "https://www.instagram.com/" + f.instagram);
-      a.textContent = "@" + f.instagram + " "; a.insertAdjacentHTML("beforeend", "<i>↗</i>");
+      a.textContent = "@" + f.instagram + " "; a.insertAdjacentHTML("beforeend", '<i class="ne" aria-hidden="true"></i>');
       if (f.photo) { var im = new Image(); im.alt = f.name; im.loading = "lazy";
         im.onerror = function(){ im.remove(); }; im.src = f.photo; li.querySelector(".ph").appendChild(im); }
-      ul.appendChild(li);
+      ul.insertBefore(li, ul.lastElementChild);
     });
   })();
   // posts
@@ -201,7 +204,7 @@
     if (!POSTS.length) { ul.remove(); return; }
     POSTS.forEach(function(p){
       var li = document.createElement("li");
-      li.innerHTML = '<a target="_blank" rel="noopener"><img loading="lazy" alt=""><span class="cap"></span><span class="label">Instagram ↗</span></a>';
+      li.innerHTML = '<a target="_blank" rel="noopener"><img loading="lazy" alt=""><span class="cap"></span><span class="label">Instagram <i class="ne" aria-hidden="true"></i></span></a>';
       var a = li.firstChild; a.href = p.url; a.querySelector("img").src = p.img; a.querySelector(".cap").textContent = p.text;
       ul.appendChild(li);
     });
